@@ -1,0 +1,19 @@
+<?php      
+    
+    include('connection.php');
+    $username = $_POST['aadhaar'];  
+    $password = $_POST['dob'];  
+      
+      
+        $sql = "select *from aadhaar where aadhaar_id = '$username' and dob = '$password'";  
+        $result = mysqli_query($conn, $sql);  
+        $row = mysqli_fetch_array($result);  
+        $count = mysqli_num_rows($result);  
+          
+        if($count == 1){  
+            header("index2/index.html");  
+        }  
+        else{  
+            echo "<h1> Login failed. Invalid username or password.</h1>";  
+        }     
+?>  
